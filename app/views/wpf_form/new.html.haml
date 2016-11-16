@@ -1,0 +1,91 @@
+.row
+  .col-md-12
+
+    .page-header
+      %h1 Payment on Rails
+
+    .panel.panel-primary
+      .panel-heading Payment form
+      .panel-body
+
+        %form.form-horizontal
+          .col-md-6
+            .panel.panel-default
+              .panel-heading Customer personal details
+              .panel-body
+
+                .form-group
+                  %label.control-label.col-md-3
+                    E-mail:
+                    %i.required *
+                  .col-md-8
+                    %input.form-control{ name: :email }
+
+                .form-group
+                  %label.control-label.col-md-3
+                    Address:
+                    %i.required *
+                  .col-md-8
+                    %input.form-control{ name: :address }
+            .panel.panel-default
+              .panel-heading Transaction details
+              .panel-body
+
+                .form-group
+                  %label.control-label.col-md-4
+                    Amount:
+                    %i.required *
+                  .col-md-7
+
+                    .input-group.input-group-lg
+                      .input-group-addon $
+                      %input.form-control{ name: :amount }
+                .form-group
+                  %label.control-label.col-md-4
+                    Usage:
+                    %i.required *
+                  .col-md-7
+                    %input.form-control{ name: :usage }
+
+          .col-md-6
+            .panel.panel-default
+              .panel-heading Customer card details
+              .panel-body
+                .form-group
+                  %label.control-label.col-md-4
+                    Card number:
+                    %i.required *
+                  .col-md-7
+                    %input.form-control{ name: 'card_number', id: 'card_number',  maxlength: 18 }
+                .form-group
+                  %label.control-label.col-md-4
+                    Card holder:
+                    %i.required *
+                  .col-md-7
+                    %input.form-control{ name: 'card_holder', id: 'card_holder' }
+                .form-group
+                  %label.control-label.col-md-4
+                    Expiration date:
+                    %i.required *
+                  .col-md-7
+                    %input.form-control{ name: 'expiration_date', id: 'expiration_date' }
+                .form-group
+                  %label.control-label.col-md-4
+                    CVV:
+                    %i.required *
+                  .col-md-2
+                    %input.form-control{ name: 'cvv', id: 'cvv',  maxlength: 3 }
+                .card-wrapper
+
+        .message.alert.alert-info
+          Please Wait...
+        .error_image
+          = image_tag(asset_path('error.jpg'), width: 200)
+        .success_image
+          = image_tag(asset_path('success.jpg'), width: 200)
+
+      .panel-footer
+        %button.btn.btn-primary.btn-lg{ type: 'cancel', id: 'cancel' } Cancel
+        %button.btn.btn-primary.btn-lg.pull-right{ type: 'submit', id: 'submit' } Pay
+        %button.btn.btn-danger.btn-lg.pull-right{ id: 'void' } Void
+        %button.btn.btn-primary.btn-lg.pull-right{ id: 'restart' } Try Again
